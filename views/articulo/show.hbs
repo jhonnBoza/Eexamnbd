@@ -2,54 +2,59 @@
 <html>
 <head>
 <title>{{title}}</title>
-<link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-<body>
-<div class="container">
-<h3><a href="/articulos">Lista de Artículos</a></h3>
-<h1>Detalles del Artículo</h1>
-<table class="table table-hover">
+<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px;">
+<div style="max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+<div style="margin-bottom: 30px; border-bottom: 3px solid #007bff; padding-bottom: 20px;">
+<h3><a href="/articulos" style="color: #007bff; text-decoration: none;">← Volver a Lista de Artículos</a></h3>
+<h1 style="color: #333; margin: 10px 0;">Detalles del Artículo</h1>
+</div>
+
+<div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+<table style="width: 100%; border-collapse: collapse;">
 <tbody>
-<tr>
-<td><strong>ID:</strong></td>
-<td>{{articulo._id}}</td>
+<tr style="border-bottom: 1px solid #dee2e6;">
+<td style="padding: 15px; font-weight: bold; color: #495057; background: #e9ecef; width: 200px;">ID:</td>
+<td style="padding: 15px; color: #6c757d; font-family: monospace;">{{articulo._id}}</td>
+</tr>
+<tr style="border-bottom: 1px solid #dee2e6;">
+<td style="padding: 15px; font-weight: bold; color: #495057; background: #e9ecef;">Descripción:</td>
+<td style="padding: 15px; color: #333; font-size: 18px;">{{articulo.descripcion}}</td>
+</tr>
+<tr style="border-bottom: 1px solid #dee2e6;">
+<td style="padding: 15px; font-weight: bold; color: #495057; background: #e9ecef;">Marca:</td>
+<td style="padding: 15px; color: #333;">{{articulo.Marca}}</td>
+</tr>
+<tr style="border-bottom: 1px solid #dee2e6;">
+<td style="padding: 15px; font-weight: bold; color: #495057; background: #e9ecef;">Modelo:</td>
+<td style="padding: 15px; color: #333;">{{articulo.Modelo}}</td>
+</tr>
+<tr style="border-bottom: 1px solid #dee2e6;">
+<td style="padding: 15px; font-weight: bold; color: #495057; background: #e9ecef;">Precio Soles:</td>
+<td style="padding: 15px; color: #28a745; font-size: 20px; font-weight: bold;">S/ {{articulo.precio_soles}}</td>
+</tr>
+<tr style="border-bottom: 1px solid #dee2e6;">
+<td style="padding: 15px; font-weight: bold; color: #495057; background: #e9ecef;">Precio Dólares:</td>
+<td style="padding: 15px; color: #17a2b8; font-size: 20px; font-weight: bold;">$ {{articulo.precio_dolares}}</td>
+</tr>
+<tr style="border-bottom: 1px solid #dee2e6;">
+<td style="padding: 15px; font-weight: bold; color: #495057; background: #e9ecef;">Cantidad:</td>
+<td style="padding: 15px; color: #333; font-size: 18px;">{{articulo.cantidad}}</td>
 </tr>
 <tr>
-<td><strong>Descripción:</strong></td>
-<td>{{articulo.descripcion}}</td>
-</tr>
-<tr>
-<td><strong>Marca:</strong></td>
-<td>{{articulo.Marca}}</td>
-</tr>
-<tr>
-<td><strong>Modelo:</strong></td>
-<td>{{articulo.Modelo}}</td>
-</tr>
-<tr>
-<td><strong>Precio Soles:</strong></td>
-<td>S/ {{articulo.precio_soles}}</td>
-</tr>
-<tr>
-<td><strong>Precio Dólares:</strong></td>
-<td>$ {{articulo.precio_dolares}}</td>
-</tr>
-<tr>
-<td><strong>Cantidad:</strong></td>
-<td>{{articulo.cantidad}}</td>
-</tr>
-<tr>
-<td><strong>Stock:</strong></td>
-<td>{{articulo.stock}}</td>
+<td style="padding: 15px; font-weight: bold; color: #495057; background: #e9ecef;">Stock:</td>
+<td style="padding: 15px; color: #28a745; font-size: 18px; font-weight: bold;">{{articulo.stock}}</td>
 </tr>
 </tbody>
 </table>
-<p>
-<a href="/articulos/{{articulo._id}}/edit">Editar</a> | 
+</div>
+
+<div style="text-align: center; padding: 20px 0;">
+<a href="/articulos/{{articulo._id}}/edit" style="background: #ffc107; color: black; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-right: 10px;">Editar</a>
 <form action="/articulos/{{articulo._id}}/delete" method="POST" style="display: inline;">
-<input type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro?')" />
+<input type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro de eliminar este artículo?')" style="background: #dc3545; color: white; padding: 12px 25px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;" />
 </form>
-</p>
+</div>
 </div>
 </body>
 </html>

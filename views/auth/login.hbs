@@ -2,27 +2,28 @@
 <html>
 <head>
 <title>{{title}}</title>
-<link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-<body>
-<div class="container">
-<h1>Iniciar Sesión</h1>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+<div style="max-width: 400px; margin: 50px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+<h1 style="text-align: center; color: #333; margin-bottom: 30px;">Iniciar Sesión</h1>
 {{#if error}}
-<div style="color: red;">{{error}}</div>
+<div style="background: #ffebee; color: #c62828; padding: 10px; border-radius: 5px; margin-bottom: 20px; border-left: 4px solid #c62828;">{{error}}</div>
 {{/if}}
 <form action="/login" method="POST">
-<table>
+<table style="width: 100%;">
 <tbody>
 <tr>
-<td>Usuario</td>
-<td><input type="text" name="usuario" required /></td>
+<td style="padding: 10px 0; font-weight: bold; color: #555;">Usuario:</td>
+<td><input type="text" name="usuario" required style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px;" /></td>
 </tr>
 <tr>
-<td>Contraseña</td>
-<td><input type="password" name="clave" required /></td>
+<td style="padding: 10px 0; font-weight: bold; color: #555;">Contraseña:</td>
+<td><input type="password" name="clave" required style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 5px; font-size: 16px;" /></td>
 </tr>
 <tr>
-<td colspan="2"><input type="submit" value="Iniciar Sesión" /></td>
+<td colspan="2" style="text-align: center; padding: 20px 0;">
+<input type="submit" value="🚀 Iniciar Sesión" style="background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; width: 100%;" />
+</td>
 </tr>
 </tbody>
 </table>

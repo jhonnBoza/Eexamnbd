@@ -1,49 +1,61 @@
-<h1>{{title}}</h1>
-<h1>Artículos</h1>
-<p>
-<div class="container">
-<h3><a href="/articulos/create">Crear Artículo</a></h3>
-<h1>Lista de Artículos</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{title}}</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px;">
+<div style="max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 3px solid #007bff; padding-bottom: 20px;">
+<h1 style="color: #333; margin: 0;">Gestión de Artículos</h1>
+<a href="/articulos/create" style="background: #28a745; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold;">+ Crear Artículo</a>
+</div>
+
 {{#if error}}
-<div style="color: red;">{{error}}</div>
+<div style="background: #ffebee; color: #c62828; padding: 15px; border-radius: 5px; margin-bottom: 20px; border-left: 4px solid #c62828;">{{error}}</div>
 {{/if}}
+
 {{#if articulos }}
-<table class="table table-hover">
+<div style="overflow-x: auto;">
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
 <thead>
-<tr>
-<th>Descripción</th>
-<th>Precio Soles</th>
-<th>Cantidad</th>
-<th>Stock</th>
-<th>Precio Dólares</th>
-<th>Marca</th>
-<th>Modelo</th>
-<th>Acciones</th>
+<tr style="background: #007bff; color: white;">
+<th style="padding: 15px; text-align: left; border: 1px solid #ddd;">Descripción</th>
+<th style="padding: 15px; text-align: left; border: 1px solid #ddd;">Precio Soles</th>
+<th style="padding: 15px; text-align: left; border: 1px solid #ddd;">Cantidad</th>
+<th style="padding: 15px; text-align: left; border: 1px solid #ddd;">Stock</th>
+<th style="padding: 15px; text-align: left; border: 1px solid #ddd;">Precio Dólares</th>
+<th style="padding: 15px; text-align: left; border: 1px solid #ddd;">Marca</th>
+<th style="padding: 15px; text-align: left; border: 1px solid #ddd;">Modelo</th>
+<th style="padding: 15px; text-align: left; border: 1px solid #ddd;">Acciones</th>
 </tr>
 </thead>
 <tbody>
 {{# each articulos }}
-<tr>
-<td><a href="/articulos/{{ _id }}">{{ descripcion }}</a></td>
-<td>S/ {{ precio_soles }}</td>
-<td>{{ cantidad }}</td>
-<td>{{ stock }}</td>
-<td>$ {{ precio_dolares }}</td>
-<td>{{ Marca }}</td>
-<td>{{ Modelo }}</td>
-<td>
-<a href="/articulos/{{ _id }}">Ver</a> | 
-<a href="/articulos/{{ _id }}/edit">Editar</a> | 
+<tr style="border-bottom: 1px solid #ddd;">
+<td style="padding: 15px; border: 1px solid #ddd;"><a href="/articulos/{{ _id }}" style="color: #007bff; text-decoration: none; font-weight: bold;">{{ descripcion }}</a></td>
+<td style="padding: 15px; border: 1px solid #ddd; color: #28a745; font-weight: bold;">S/ {{ precio_soles }}</td>
+<td style="padding: 15px; border: 1px solid #ddd;">{{ cantidad }}</td>
+<td style="padding: 15px; border: 1px solid #ddd; color: #28a745; font-weight: bold;">{{ stock }}</td>
+<td style="padding: 15px; border: 1px solid #ddd; color: #17a2b8; font-weight: bold;">$ {{ precio_dolares }}</td>
+<td style="padding: 15px; border: 1px solid #ddd;">{{ Marca }}</td>
+<td style="padding: 15px; border: 1px solid #ddd;">{{ Modelo }}</td>
+<td style="padding: 15px; border: 1px solid #ddd;">
+<a href="/articulos/{{ _id }}" style="background: #17a2b8; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; margin-right: 5px;">Ver</a>
+<a href="/articulos/{{ _id }}/edit" style="background: #ffc107; color: black; padding: 5px 10px; text-decoration: none; border-radius: 3px; margin-right: 5px;">Editar</a>
 <form action="/articulos/{{ _id }}/delete" method="POST" style="display: inline;">
-<input type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro?')" />
+<input type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro?')" style="background: #dc3545; color: white; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer;" />
 </form>
 </td>
 </tr>
 {{/each}}
 </tbody>
 </table>
+</div>
 {{~^~}}
-<div>Artículos no encontrados.</div>
+<div style="text-align: center; padding: 50px; color: #6c757d; font-size: 18px;">
+ No hay artículos registrados
+</div>
 {{/if}}
 </div>
-</p>
+</body>
+</html>
