@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editar Producto</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .container { max-width: 600px; }
+    table { width: 100%; border-collapse: collapse; }
+    td { padding: 10px; }
+    input[type="text"], input[type="number"], textarea { width: 100%; padding: 8px; }
+    input[type="submit"] { background-color: #FF9800; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+    input[type="submit"]:hover { background-color: #F57C00; }
+    .back-link { color: #2196F3; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3><a href="/productos" class="back-link">← Lista de Productos</a></h3>
+    <h1>Editar Producto</h1>
+    <form action="/productos/update/{{ producto._id }}" method="post">
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Nombre:</strong></td>
+            <td><input type="text" name="nombre" value="{{ producto.nombre }}" required /></td>
+          </tr>
+          <tr>
+            <td><strong>Descripción:</strong></td>
+            <td><textarea name="descripcion" rows="3" required>{{ producto.descripcion }}</textarea></td>
+          </tr>
+          <tr>
+            <td><strong>Precio:</strong></td>
+            <td><input type="number" name="precio" step="0.01" min="0" value="{{ producto.precio }}" required /></td>
+          </tr>
+          <tr>
+            <td><strong>Stock:</strong></td>
+            <td><input type="number" name="stock" min="0" value="{{ producto.stock }}" required /></td>
+          </tr>
+          <tr>
+            <td><strong>Categoría:</strong></td>
+            <td><input type="text" name="categoria" value="{{ producto.categoria }}" required /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="submit" value="Actualizar Producto" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</body>
+</html>

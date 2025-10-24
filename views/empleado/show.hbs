@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detalle de Empleado</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .container { max-width: 600px; }
+    table { width: 100%; border-collapse: collapse; }
+    td { padding: 10px; border: 1px solid #ddd; }
+    .label { background-color: #f2f2f2; font-weight: bold; }
+    .back-link { color: #2196F3; text-decoration: none; }
+    .action-link { color: #FF9800; text-decoration: none; margin-right: 10px; }
+    .delete-btn { background-color: #f44336; color: white; padding: 8px 16px; border: none; cursor: pointer; }
+    .delete-btn:hover { background-color: #da190b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3><a href="/empleados" class="back-link">← Lista de Empleados</a></h3>
+    <h1>Detalle del Empleado</h1>
+    <table>
+      <tbody>
+        <tr>
+          <td class="label">Nombre:</td>
+          <td>{{ empleado.nombre }}</td>
+        </tr>
+        <tr>
+          <td class="label">Apellido:</td>
+          <td>{{ empleado.apellido }}</td>
+        </tr>
+        <tr>
+          <td class="label">Email:</td>
+          <td>{{ empleado.email }}</td>
+        </tr>
+        <tr>
+          <td class="label">Teléfono:</td>
+          <td>{{ empleado.telefono }}</td>
+        </tr>
+        <tr>
+          <td class="label">Cargo:</td>
+          <td>{{ empleado.cargo }}</td>
+        </tr>
+        <tr>
+          <td class="label">Salario:</td>
+          <td>${{ empleado.salario }}</td>
+        </tr>
+        <tr>
+          <td class="label">Fecha de Ingreso:</td>
+          <td>{{ empleado.fecha_ingreso }}</td>
+        </tr>
+        <tr>
+          <td class="label">Fecha de Registro:</td>
+          <td>{{ empleado.created_at }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <a href="/empleados/edit/{{ empleado._id }}" class="action-link">EDITAR</a>
+    <form action="/empleados/delete/{{ empleado._id }}" method="post" style="display: inline;">
+      <button type="submit" class="delete-btn" onclick="return confirm('¿Estás seguro de eliminar este empleado?')">ELIMINAR</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{title}}</title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<div class="container">
+<h3><a href="/articulos">Lista de Artículos</a></h3>
+<h1>Detalles del Artículo</h1>
+<table class="table table-hover">
+<tbody>
+<tr>
+<td><strong>ID:</strong></td>
+<td>{{articulo._id}}</td>
+</tr>
+<tr>
+<td><strong>Descripción:</strong></td>
+<td>{{articulo.descripcion}}</td>
+</tr>
+<tr>
+<td><strong>Marca:</strong></td>
+<td>{{articulo.Marca}}</td>
+</tr>
+<tr>
+<td><strong>Modelo:</strong></td>
+<td>{{articulo.Modelo}}</td>
+</tr>
+<tr>
+<td><strong>Precio Soles:</strong></td>
+<td>S/ {{articulo.precio_soles}}</td>
+</tr>
+<tr>
+<td><strong>Precio Dólares:</strong></td>
+<td>$ {{articulo.precio_dolares}}</td>
+</tr>
+<tr>
+<td><strong>Cantidad:</strong></td>
+<td>{{articulo.cantidad}}</td>
+</tr>
+<tr>
+<td><strong>Stock:</strong></td>
+<td>{{articulo.stock}}</td>
+</tr>
+</tbody>
+</table>
+<p>
+<a href="/articulos/{{articulo._id}}/edit">Editar</a> | 
+<form action="/articulos/{{articulo._id}}/delete" method="POST" style="display: inline;">
+<input type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro?')" />
+</form>
+</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detalle de Producto</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .container { max-width: 600px; }
+    table { width: 100%; border-collapse: collapse; }
+    td { padding: 10px; border: 1px solid #ddd; }
+    .label { background-color: #f2f2f2; font-weight: bold; }
+    .back-link { color: #2196F3; text-decoration: none; }
+    .action-link { color: #FF9800; text-decoration: none; margin-right: 10px; }
+    .delete-btn { background-color: #f44336; color: white; padding: 8px 16px; border: none; cursor: pointer; }
+    .delete-btn:hover { background-color: #da190b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3><a href="/productos" class="back-link">← Lista de Productos</a></h3>
+    <h1>Detalle del Producto</h1>
+    <table>
+      <tbody>
+        <tr>
+          <td class="label">Nombre:</td>
+          <td>{{ producto.nombre }}</td>
+        </tr>
+        <tr>
+          <td class="label">Descripción:</td>
+          <td>{{ producto.descripcion }}</td>
+        </tr>
+        <tr>
+          <td class="label">Precio:</td>
+          <td>${{ producto.precio }}</td>
+        </tr>
+        <tr>
+          <td class="label">Stock:</td>
+          <td>{{ producto.stock }}</td>
+        </tr>
+        <tr>
+          <td class="label">Categoría:</td>
+          <td>{{ producto.categoria }}</td>
+        </tr>
+        <tr>
+          <td class="label">Fecha de Creación:</td>
+          <td>{{ producto.created_at }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <a href="/productos/edit/{{ producto._id }}" class="action-link">EDITAR</a>
+    <form action="/productos/delete/{{ producto._id }}" method="post" style="display: inline;">
+      <button type="submit" class="delete-btn" onclick="return confirm('¿Estás seguro de eliminar este producto?')">ELIMINAR</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{title}}</title>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<div class="container">
+<h3><a href="/articulos">Lista de Artículos</a></h3>
+<h1>Crear Nuevo Artículo</h1>
+{{#if error}}
+<div style="color: red;">{{error}}</div>
+{{/if}}
+<form action="/articulos/store" method="POST">
+<table>
+<tbody>
+<tr>
+<td>Descripción</td>
+<td><input type="text" name="descripcion" required /></td>
+</tr>
+<tr>
+<td>Marca</td>
+<td><input type="text" name="Marca" required /></td>
+</tr>
+<tr>
+<td>Modelo</td>
+<td><input type="text" name="Modelo" required /></td>
+</tr>
+<tr>
+<td>Precio Soles</td>
+<td><input type="number" step="0.01" name="precio_soles" required /></td>
+</tr>
+<tr>
+<td>Precio Dólares</td>
+<td><input type="number" step="0.01" name="precio_dolares" required /></td>
+</tr>
+<tr>
+<td>Cantidad</td>
+<td><input type="number" name="cantidad" required /></td>
+</tr>
+<tr>
+<td>Stock</td>
+<td><input type="number" name="stock" required /></td>
+</tr>
+<tr>
+<td colspan="2"><input type="submit" value="Grabar" /></td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</body>
+</html>

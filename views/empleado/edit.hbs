@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editar Empleado</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .container { max-width: 600px; }
+    table { width: 100%; border-collapse: collapse; }
+    td { padding: 10px; }
+    input[type="text"], input[type="email"], input[type="number"], input[type="date"] { width: 100%; padding: 8px; }
+    input[type="submit"] { background-color: #FF9800; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+    input[type="submit"]:hover { background-color: #F57C00; }
+    .back-link { color: #2196F3; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h3><a href="/empleados" class="back-link">← Lista de Empleados</a></h3>
+    <h1>Editar Empleado</h1>
+    <form action="/empleados/update/{{ empleado._id }}" method="post">
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Nombre:</strong></td>
+            <td><input type="text" name="nombre" value="{{ empleado.nombre }}" required /></td>
+          </tr>
+          <tr>
+            <td><strong>Apellido:</strong></td>
+            <td><input type="text" name="apellido" value="{{ empleado.apellido }}" required /></td>
+          </tr>
+          <tr>
+            <td><strong>Email:</strong></td>
+            <td><input type="email" name="email" value="{{ empleado.email }}" required /></td>
+          </tr>
+          <tr>
+            <td><strong>Teléfono:</strong></td>
+            <td><input type="text" name="telefono" value="{{ empleado.telefono }}" required /></td>
+          </tr>
+          <tr>
+            <td><strong>Cargo:</strong></td>
+            <td><input type="text" name="cargo" value="{{ empleado.cargo }}" required /></td>
+          </tr>
+          <tr>
+            <td><strong>Salario:</strong></td>
+            <td><input type="number" name="salario" step="0.01" min="0" value="{{ empleado.salario }}" required /></td>
+          </tr>
+          <tr>
+            <td><strong>Fecha de Ingreso:</strong></td>
+            <td><input type="date" name="fecha_ingreso" value="{{ empleado.fecha_ingreso }}" required /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><input type="submit" value="Actualizar Empleado" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</body>
+</html>
